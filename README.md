@@ -1,6 +1,6 @@
 # Frontend Mentor Challenge
 
-This is my solution to the QR code component challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is my solution to the Launch Countdown on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Overview
 
