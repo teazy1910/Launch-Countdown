@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-
+import "./App.css";
 // Hilfsfunktion: Formatiert Zahlen immer zweistellig (z.B. 09)
 const formatValue = (value) => String(value).padStart(2, "0");
 
