@@ -1,13 +1,32 @@
-.header-container {
+body {
+  background-color: var(--background-color);
+  font-family: var(--primary-font);
+  color: #f1f1f1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+.header-container {
+  padding-bottom: 3rem;
 }
 
 .title {
-  font-size: 3rem;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 7em;
-  color: var(--white);
+  margin: 0;
+  color: #ccc;
 }
 
 .footer {
@@ -16,8 +35,113 @@
   left: 0;
   width: 100%;
   height: 150px;
+  padding-top: 6rem;
+  color: #8385a9;
+  font-size: 0.9rem;
   background-image: url("/src/assets/images/pattern-hills.svg");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 100;
+}
+
+/* Countdown Stile */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1rem, 4vw, 2rem);
+  flex-wrap: wrap;
+}
+
+/* Flip Unit Stile */
+.flip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unit-label {
+  margin-top: 15px;
+  font-size: var(--label-font-size);
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.flip-card-container {
+  position: relative;
+  width: var(--flip-card-width);
+  height: var(--flip-card-height);
+  perspective: var(--perspective);
+  font-size: var(--font-size);
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  text-align: center; /* Horizontale Zentrierung */
+}
+
+.static-card,
+.card-face {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--card-bg-color);
+  color: var(--card-text-color);
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+/* Obere Hälften */
+.static-card.top,
+.card-face.top {
+  top: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+  line-height: var(
+    --flip-card-height
+  ); /*  Text wird durch line-height positioniert */
+}
+
+/* Untere Hälften */
+.static-card.bottom,
+.card-face.bottom {
+  top: 50%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  line-height: 0; /* Text "nach oben ziehen" */
+}
+
+.flip-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.flip-card .card-face.top {
+  transform-origin: bottom;
+}
+
+.flip-card .card-face.bottom {
+  transform: rotateX(180deg);
+  transform-origin: top;
+}
+
+.flip-card.flipping {
+  animation: flip var(--flip-duration) ease-in-out forwards;
+}
+
+@keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-180deg);
+  }
 }

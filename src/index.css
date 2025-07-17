@@ -1,17 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
 @import "./App.css";
-@import "./components/Countdown/Countdown.css";
-@import "./components/Picture/Picture.css";
 
 :root {
-  font-family: "Red Hat Text", sans-serif;
   box-sizing: border-box;
   font-weight: 700;
-  font-size: 14px;
   height: 100%;
-  /* 
-## Colors
-*/
+
+  --card-text-color: hsl(345, 95%, 68%);
+  --card-bg-color: #2c2c2c;
+  --font-size: 4rem;
+  --label-font-size: 1rem;
+  --perspective: 500px;
+  --primary-font: "Red Hat Text", sans-serif;
+  --flip-card-width: 100px;
+  --flip-card-height: 90px;
+  --flip-duration: 0.5s;
+
+  /* ## Colors */
   --grayish: hsl(237, 18%, 59%);
   --softred: hsl(345, 95%, 68%);
 
@@ -21,14 +26,18 @@
   --mostlyblack: hsl(234, 17%, 12%);
 }
 
+/* 
+:root {
+
+
+
+ 
+}
+
+
+*/
+
 html {
   background-color: var(--mostlyblack);
   background-image: url("src/assets/images/bg-stars.svg");
 }
-
-/* body {
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-image: url("src/assets/images/pattern-hills.svg");
-  background-size: contain;
-} */
